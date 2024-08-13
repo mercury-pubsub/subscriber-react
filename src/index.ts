@@ -19,9 +19,12 @@ export function usePublish<ChannelId extends keyof Channels>(
 ): PublishFunctions<ChannelId> {
 	const subscriber = useSubscriber();
 
-	const publish = useCallback((body: Channels[ChannelId]) => {
-		subscriber.publish(channelId, body);
-	}, [channelId, subscriber.publish]);
+	const publish = useCallback(
+		(body: Channels[ChannelId]) => {
+			subscriber.publish(channelId, body);
+		},
+		[channelId, subscriber.publish],
+	);
 
 	const publishAsync = useCallback(
 		async (body: Channels[ChannelId]) => {
