@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mercury-pubsub/subscriber':
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.0.1
+        version: 2.0.1
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -267,8 +267,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@mercury-pubsub/subscriber@2.0.0':
-    resolution: {integrity: sha512-DNBcn8KVbdmFUKRkTgjgHSHDAhSwmp88xLvD5zpGqfwy080VzD4VzERdhWK1kK6jwwGgSPhcWrNcOJ9NL7qeqw==}
+  '@mercury-pubsub/subscriber@2.0.1':
+    resolution: {integrity: sha512-ndGRC0yOYHY2jrt/YIhrFmJEaTH9gidZsa8xXtshSn5Suq1/714UBYtdVr05vKWIacFdoaKbyI6if8Q74zkzRQ==}
 
   '@mercury-pubsub/types@2.0.1':
     resolution: {integrity: sha512-XH7PYWPn1uxEziTYFiKBr17CvA4nqj2q2t91xWneJY5FwYMHiBimmuCvYACueJaqDMXSrmurFPoS2y5Va+GT9Q==}
@@ -1150,7 +1150,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mercury-pubsub/subscriber@2.0.0':
+  '@mercury-pubsub/subscriber@2.0.1':
     dependencies:
       eventsource: 2.0.2
       tslib: 2.6.3

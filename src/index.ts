@@ -6,31 +6,31 @@ import { useSubscriber } from "./context/hook";
 /**
  * @public
  */
-export type PublishFunctions<ChannelId extends keyof Channels> = {
-	publish: (body: Channels[ChannelId]) => void;
-	publishAsync: (body: Channels[ChannelId]) => Promise<void>;
+export type PublishFunctions<ChannelName extends keyof Channels> = {
+	publish: (body: Channels[ChannelName]) => void;
+	publishAsync: (body: Channels[ChannelName]) => Promise<void>;
 };
 
 /**
  * @public
  */
-export function usePublish<ChannelId extends keyof Channels>(
-	channelId: ChannelId,
-): PublishFunctions<ChannelId> {
+export function usePublish<ChannelName extends keyof Channels>(
+	channelName: ChannelName,
+): PublishFunctions<ChannelName> {
 	const subscriber = useSubscriber();
 
 	const publish = useCallback(
-		(body: Channels[ChannelId]) => {
-			subscriber.publish(channelId, body);
+		(body: Channels[ChannelName]) => {
+			subscriber.publish(channelName, body);
 		},
-		[channelId, subscriber.publish],
+		[channelName, subscriber.publish],
 	);
 
 	const publishAsync = useCallback(
-		async (body: Channels[ChannelId]) => {
-			await subscriber.publish(channelId, body);
+		async (body: Channels[ChannelName]) => {
+			await subscriber.publish(channelName, body);
 		},
-		[channelId, subscriber.publish],
+		[channelName, subscriber.publish],
 	);
 
 	return useMemo(() => ({ publish, publishAsync }), [publish, publishAsync]);
@@ -39,22 +39,22 @@ export function usePublish<ChannelId extends keyof Channels>(
 /**
  * @public
  */
-export type UseSubscribeOptions<ChannelId extends keyof Channels> = {
-	onMessage: (body: Channels[ChannelId]) => void;
+export type UseSubscribeOptions<ChannelName extends keyof Channels> = {
+	onMessage: (body: Channels[ChannelName]) => void;
 	onError?: (error: SubscriberError) => void;
 };
 
 /**
  * @public
  */
-export function useSubscribe<ChannelId extends keyof Channels>(
-	channelId: ChannelId,
-	{ onMessage, onError }: UseSubscribeOptions<ChannelId>,
+export function useSubscribe<ChannelName extends keyof Channels>(
+	channelName: ChannelName,
+	{ onMessage, onError }: UseSubscribeOptions<ChannelName>,
 ): void {
 	const subscriber = useSubscriber();
 
 	useEffect(() => {
-		const close = subscriber.subscribe(channelId, onMessage, onError);
+		const close = subscriber.subscribe(channelName, onMessage, onError);
 		return () => {
 			close.then((close) => {
 				close();

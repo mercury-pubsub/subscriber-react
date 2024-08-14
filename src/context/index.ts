@@ -2,6 +2,10 @@ import { Subscriber } from "@mercury-pubsub/subscriber";
 import { createContext } from "react";
 
 class MissingSubscriber extends Subscriber {
+	constructor() {
+		super("");
+	}
+
 	override publish(): Promise<void> {
 		throw new Error("Missing SubscriberProvider");
 	}
