@@ -1,6 +1,6 @@
 {
 	"name": "@mercury-pubsub/react",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "",
 	"keywords": ["publish", "subscribe", "real time", "serverless"],
 	"author": "Tanguy Michardière",
@@ -10,12 +10,12 @@
 	"exports": {
 		".": {
 			"import": {
-				"default": "./index.mjs",
-				"types": "./index.d.mts"
+				"types": "./index.d.mts",
+				"default": "./index.mjs"
 			},
 			"require": {
-				"default": "./index.js",
-				"types": "./index.d.ts"
+				"types": "./index.d.ts",
+				"default": "./index.js"
 			}
 		}
 	},
@@ -29,20 +29,20 @@
 		"build": "tsup && cp package.json dist"
 	},
 	"dependencies": {
-		"@mercury-pubsub/subscriber": "2.0.1",
-		"tslib": "2.6.3"
+		"@mercury-pubsub/subscriber": "2.0.2",
+		"tslib": "2"
 	},
 	"peerDependencies": {
-		"react": "18.3.1"
+		"react": "18"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
 		"@mercury-pubsub/types": "2.0.1",
-		"@swc/core": "1.7.10",
+		"@swc/core": "1.7.14",
 		"@total-typescript/ts-reset": "0.5.1",
-		"@types/react": "18.3.3",
-		"knip": "5.27.2",
-		"npm-check-updates": "17.0.6",
+		"@types/react": "18.3.4",
+		"knip": "5.27.3",
+		"npm-check-updates": "17.1.0",
 		"tsup": "8.2.4",
 		"typescript": "5.5.4"
 	}
