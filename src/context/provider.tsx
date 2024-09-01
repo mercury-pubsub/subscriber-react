@@ -8,15 +8,16 @@ import { subscriberContext } from ".";
  * @public
  */
 export type Props = SubscriberOptions & {
-	projectId: string;
+	region: ConstructorParameters<typeof Subscriber>[0];
+	projectId: ConstructorParameters<typeof Subscriber>[1];
 	children: ReactNode;
 };
 
 /**
  * @public
  */
-export function SubscriberProvider({ projectId, children, ...subscriberOptions }: Props) {
-	const [subscriber] = useState(new Subscriber(projectId, subscriberOptions));
+export function SubscriberProvider({ region, projectId, children, ...subscriberOptions }: Props) {
+	const [subscriber] = useState(new Subscriber(region, projectId, subscriberOptions));
 
 	return <subscriberContext.Provider value={subscriber}>{children}</subscriberContext.Provider>;
 }

@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 class MissingSubscriber extends Subscriber {
 	constructor() {
-		super("");
+		super("us-west", "");
 	}
 
 	override publish(): Promise<void> {
